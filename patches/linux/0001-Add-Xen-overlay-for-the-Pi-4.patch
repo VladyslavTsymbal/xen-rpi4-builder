@@ -44,7 +44,7 @@ index 000000000000..47afa6ac24b7
 +        __overlay__ {
 +            #address-cells = <0x1>;
 +            #size-cells = <0x1>;
-+            xen,xen-bootargs = "console=dtuart dtuart=/soc/serial@7e215040 sync_console dom0_mem=512M dom0_max_vcpus=1 bootscrub=0";
++            xen,xen-bootargs = "console=dtuart dtuart=/soc/serial@7e215040 sync_console dom0_mem=1536M dom0_max_vcpus=2 bootscrub=0";
 +
 +            dom0 {
 +                compatible = "xen,linux-zimage", "xen,multiboot-module";
@@ -71,7 +71,7 @@ index 000000000000..6c499a831db6
 +        __overlay__ {
 +            #address-cells = <0x1>;
 +            #size-cells = <0x1>;
-+            xen,xen-bootargs = "console=dtuart dtuart=/soc/serial@7e215040 sync_console dom0_mem=512M bootscrub=0";
++            xen,xen-bootargs = "console=dtuart dtuart=/soc/serial@7e215040 sync_console dom0_mem=1536M bootscrub=0";
 +
 +            dom0 {
 +                compatible = "xen,linux-zimage", "xen,multiboot-module";

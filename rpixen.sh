@@ -15,9 +15,9 @@ trap 'fail_handler ${LINENO}' ERR
 WRKDIR=$(pwd)/
 SCRIPTDIR=$(cd $(dirname $0) && pwd)/
 
-USERNAME=dornerworks
-PASSWORD=dornerworks
-SALT=dw
+USERNAME=vlad
+PASSWORD=vlad
+SALT=vl
 HASHED_PASSWORD=$(perl -e "print crypt(\"${PASSWORD}\",\"${SALT}\");")
 HOSTNAME=ubuntu
 UBUNTUVERSION="20.04.3"
@@ -239,8 +239,8 @@ sudo mount -t tmpfs -o size=3g tmpfs ${MNTRAMDISK}
 qemu-img create ${IMGFILE} 2048M
 /sbin/parted ${IMGFILE} --script -- mklabel msdos
 MB_TO_SECTOR=2048
-/sbin/parted ${IMGFILE} --script -- mkpart primary fat32 $(( 1 * ${MB_TO_SECTOR} ))s $(( 129 * ${MB_TO_SECTOR} - 1 ))s
-/sbin/parted ${IMGFILE} --script -- mkpart primary ext4 $(( 129 * ${MB_TO_SECTOR} ))s -1025s
+/sbin/parted ${IMGFILE} --script -- mkpart primary fat32 $(( 1 * ${MB_TO_SECTOR} ))s $(( 3870 * ${MB_TO_SECTOR} - 1 ))s
+/sbin/parted ${IMGFILE} --script -- mkpart primary ext4 $(( 3870 * ${MB_TO_SECTOR} ))s -1025s
 
 LOOPDEVS=$(sudo kpartx -avs ${IMGFILE} | awk '{print $3}')
 LOOPDEVBOOT=/dev/mapper/$(echo ${LOOPDEVS} | awk '{print $1}')
